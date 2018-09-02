@@ -292,6 +292,7 @@ public abstract class AbstractJobEntityImpl extends AbstractEntity implements Ab
         if (exceptionByteArrayRef == null) {
             exceptionByteArrayRef = new JobByteArrayRef();
         }
+
         exceptionByteArrayRef.setValue("stacktrace", exception);
     }
 
