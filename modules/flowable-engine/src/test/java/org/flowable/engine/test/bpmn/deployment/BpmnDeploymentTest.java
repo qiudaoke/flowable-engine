@@ -1,9 +1,9 @@
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -49,29 +49,33 @@ public class BpmnDeploymentTest extends PluggableFlowableTestCase {
         String deploymentId = repositoryService.createDeploymentQuery().singleResult().getId();
         List<String> deploymentResources = repositoryService.getDeploymentResourceNames(deploymentId);
 
-        // verify bpmn file name
-        assertEquals(1, deploymentResources.size());
-        String bpmnResourceName = "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testGetBpmnXmlFileThroughService.bpmn20.xml";
-        assertEquals(bpmnResourceName, deploymentResources.get(0));
-
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().singleResult();
-        assertEquals(bpmnResourceName, processDefinition.getResourceName());
-        assertNull(processDefinition.getDiagramResourceName());
-        assertFalse(processDefinition.hasStartFormKey());
 
-        ProcessDefinition readOnlyProcessDefinition = ((RepositoryServiceImpl) repositoryService).getDeployedProcessDefinition(processDefinition.getId());
-        assertNull(readOnlyProcessDefinition.getDiagramResourceName());
-
-        // verify content
-        InputStream deploymentInputStream = repositoryService.getResourceAsStream(deploymentId, bpmnResourceName);
-        String contentFromDeployment = readInputStreamToString(deploymentInputStream);
-        assertTrue(contentFromDeployment.length() > 0);
-        assertTrue(contentFromDeployment.contains("process id=\"emptyProcess\""));
-
-        InputStream fileInputStream = ReflectUtil.getResourceAsStream(
-                "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testGetBpmnXmlFileThroughService.bpmn20.xml");
-        String contentFromFile = readInputStreamToString(fileInputStream);
-        assertEquals(contentFromFile, contentFromDeployment);
+        BpmnModel bpmnModel = repositoryService.getBpmnModel(processDefinition.getId());
+        System.out.println(bpmnModel);
+        // verify bpmn file name
+//        assertEquals(1, deploymentResources.size());
+//        String bpmnResourceName = "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testGetBpmnXmlFileThroughService.bpmn20.xml";
+//        assertEquals(bpmnResourceName, deploymentResources.get(0));
+//
+//        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().singleResult();
+//        assertEquals(bpmnResourceName, processDefinition.getResourceName());
+//        assertNull(processDefinition.getDiagramResourceName());
+//        assertFalse(processDefinition.hasStartFormKey());
+//
+//        ProcessDefinition readOnlyProcessDefinition = ((RepositoryServiceImpl) repositoryService).getDeployedProcessDefinition(processDefinition.getId());
+//        assertNull(readOnlyProcessDefinition.getDiagramResourceName());
+//
+//        // verify content
+//        InputStream deploymentInputStream = repositoryService.getResourceAsStream(deploymentId, bpmnResourceName);
+//        String contentFromDeployment = readInputStreamToString(deploymentInputStream);
+//        assertTrue(contentFromDeployment.length() > 0);
+//        assertTrue(contentFromDeployment.contains("process id=\"emptyProcess\""));
+//
+//        InputStream fileInputStream = ReflectUtil.getResourceAsStream(
+//                "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testGetBpmnXmlFileThroughService.bpmn20.xml");
+//        String contentFromFile = readInputStreamToString(fileInputStream);
+//        assertEquals(contentFromFile, contentFromDeployment);
     }
 
     private String readInputStreamToString(InputStream inputStream) {
@@ -158,12 +162,12 @@ public class BpmnDeploymentTest extends PluggableFlowableTestCase {
 
         repositoryService.deleteDeployment(deploymentId);
     }
-    
+
     @Test
     public void testDeploySameFileTwiceAfterInitialDeployment() {
         String bpmnResourceName = "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testProcessDiagramResource.bpmn20.xml";
         repositoryService.createDeployment().enableDuplicateFiltering().addClasspathResource(bpmnResourceName).name("twice").deploy();
-        
+
         bpmnResourceName = "org/flowable/engine/test/bpmn/deployment/BpmnDeploymentTest.testGetBpmnXmlFileThroughService.bpmn20.xml";
         repositoryService.createDeployment().enableDuplicateFiltering().addClasspathResource(bpmnResourceName).name("twice").deploy();
 
