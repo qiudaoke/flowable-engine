@@ -9,16 +9,16 @@
 
     <xsd:element name="Properties">
         <xsd:complexType>
-            <xsd:attribute name="dateTypeDay" />
-            <xsd:attribute name="dateTypeHour" />
-            <xsd:attribute name="dateTypeMinute" />
-            <xsd:attribute name="description" />
-            <xsd:attribute name="id" />
-            <xsd:attribute name="parameterUserAssign" />
-            <xsd:attribute name="propDateType" />
-            <xsd:attribute name="propNotifyType" />
-            <xsd:attribute name="propSkipRules"/>
-            <xsd:attribute name="subjectRule" />
+            <xsd:attribute name="id" type="xsd:string" />
+            <xsd:attribute name="subjectRule" type="xsd:string" />
+            <xsd:attribute name="description" type="xsd:string" />
+            <xsd:attribute name="propNotifyType" type="xsd:string" />
+            <xsd:attribute name="parameterUserAssign" type="xsd:string" />
+            <xsd:attribute name="propSkipRules" type="xsd:string" />
+            <xsd:attribute name="propDateType" type="xsd:string" />
+            <xsd:attribute name="dateTypeDay" type="xsd:string" />
+            <xsd:attribute name="dateTypeHour" type="xsd:string" />
+            <xsd:attribute name="dateTypeMinute" type="xsd:string" />
         </xsd:complexType>
     </xsd:element>
 
