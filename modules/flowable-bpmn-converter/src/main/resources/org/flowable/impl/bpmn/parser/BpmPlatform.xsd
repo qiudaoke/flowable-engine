@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsd:schema version="1.0"
+            targetNamespace="http://www.a1bpm.com/schema/1.0/A1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+
+    <xsd:element name="Properties">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" />
+            <xsd:attribute name="subjectRule" type="xsd:string" />
+            <xsd:attribute name="description" type="xsd:string" />
+            <xsd:attribute name="propNotifyType" type="xsd:string" />
+            <xsd:attribute name="parameterUserAssign" type="xsd:string" />
+            <xsd:attribute name="propSkipRules" type="xsd:string" />
+            <xsd:attribute name="propDateType" type="xsd:string" />
+            <xsd:attribute name="dateTypeDay" type="xsd:string" />
+            <xsd:attribute name="dateTypeHour" type="xsd:string" />
+            <xsd:attribute name="dateTypeMinute" type="xsd:string" />
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

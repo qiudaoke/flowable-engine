@@ -1,9 +1,9 @@
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -57,16 +57,16 @@ import io.swagger.annotations.Authorization;
 @RestController
 @Api(tags = { "Process Definitions" }, description = "Manage Process Definitions", authorizations = { @Authorization(value = "basicAuth") })
 public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
-    
+
     @Autowired
     protected ProcessEngineConfigurationImpl processEngineConfiguration;
-    
+
     @Autowired
     protected ProcessMigrationService processMigrationService;
-    
+
     @Autowired(required=false)
     protected FormRepositoryService formRepositoryService;
-    
+
     @Autowired(required=false)
     protected FormHandlerRestApiInterceptor formHandlerRestApiInterceptor;
 
@@ -88,7 +88,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Indicates action has been executed for the specified process. (category altered, activate or suspend)"),
             @ApiResponse(code = 400, message = "Indicates no category was defined in the request body."),
-            @ApiResponse(code = 404, message = "Indicates the requested process definition was not found."),
+            @ApiResponse(code = 404, message = "Indicates the requested process deffinition was not found."),
             @ApiResponse(code = 409, message = "Indicates the requested process definition is already suspended or active.")
     })
     @PutMapping(value = "/repository/process-definitions/{processDefinitionId}", produces = "application/json")
@@ -127,7 +127,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
             throw new FlowableIllegalArgumentException("Invalid action: '" + actionRequest.getAction() + "'.");
         }
     }
-    
+
     @ApiOperation(value = "Get a process definition start form", tags = { "Process Definitions" })
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Indicates request was successful and the process definition form is returned"),
@@ -138,7 +138,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
         if (formRepositoryService == null) {
             return null;
         }
-        
+
         ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
         FormInfo formInfo = getStartForm(processDefinition);
         if (formHandlerRestApiInterceptor != null) {
@@ -148,7 +148,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
             return restResponseFactory.getFormModelString(new FormModelResponse(formInfo, formModel));
         }
     }
-    
+
     @ApiOperation(value = "Migrate all instances of process definition", tags = { "Process Definitions" }, notes = "")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Indicates process instances were found and migration was executed."),
@@ -157,9 +157,9 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
     @PostMapping(value = "/repository/process-definitions/{processDefinitionId}/migrate", produces = "application/json")
     public void migrateInstancesOfProcessDefinition(@ApiParam(name = "processDefinitionId") @PathVariable String processDefinitionId,
             @RequestBody String migrationDocumentJson, HttpServletRequest request) {
-        
+
         ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
-        
+
         if (restApiInterceptor != null) {
             restApiInterceptor.migrateInstancesOfProcessDefinition(processDefinition, migrationDocumentJson);
         }
@@ -167,7 +167,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
         ProcessInstanceMigrationDocument migrationDocument = ProcessInstanceMigrationDocumentConverter.convertFromJson(migrationDocumentJson);
         processMigrationService.migrateProcessInstancesOfProcessDefinition(processDefinitionId, migrationDocument);
     }
-    
+
     @ApiOperation(value = "Batch migrate all instances of process definition", tags = { "Process Definitions" }, notes = "")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Indicates process instances were found and batch migration was started."),
@@ -176,9 +176,9 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
     @PostMapping(value = "/repository/process-definitions/{processDefinitionId}/batch-migrate", produces = "application/json")
     public void batchMigrateInstancesOfProcessDefinition(@ApiParam(name = "processDefinitionId") @PathVariable String processDefinitionId,
             @RequestBody String migrationDocumentJson, HttpServletRequest request) {
-        
+
         ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
-        
+
         if (restApiInterceptor != null) {
             restApiInterceptor.migrateInstancesOfProcessDefinition(processDefinition, migrationDocumentJson);
         }
@@ -186,7 +186,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
         ProcessInstanceMigrationDocument migrationDocument = ProcessInstanceMigrationDocumentConverter.convertFromJson(migrationDocumentJson);
         processMigrationService.batchMigrateProcessInstancesOfProcessDefinition(processDefinitionId, migrationDocument);
     }
-    
+
     protected FormInfo getStartForm(ProcessDefinition processDefinition) {
         FormInfo formInfo = null;
         BpmnModel bpmnModel = repositoryService.getBpmnModel(processDefinition.getId());
@@ -205,7 +205,7 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
             // Definition found, but no form attached
             throw new FlowableObjectNotFoundException("Process definition does not have a form defined: " + processDefinition.getId());
         }
-        
+
         return formInfo;
     }
 
