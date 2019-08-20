@@ -8,6 +8,23 @@
 
   <import namespace="http://www.omg.org/spec/BPMN/20100524/MODEL" schemaLocation="Semantic.xsd" />
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <annotation>
     <documentation>
       This XML Schema defines and documents BPMN 2.0 extension elements and
