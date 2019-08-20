@@ -14,6 +14,7 @@
 package org.flowable.a1bpm;
 
 import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.ExtA1Properties;
 import org.flowable.engine.impl.test.ResourceFlowableTestCase;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.engine.test.Deployment;
@@ -35,6 +36,8 @@ public class A1CategoryTest extends ResourceFlowableTestCase {
         String processDefinitionId = pi.getProcessDefinitionId();
         BpmnModel bpmnModel = repositoryService.getBpmnModel(processDefinitionId);
         System.out.println(bpmnModel);
+        ExtA1Properties extA1Properties = bpmnModel.getExtA1Properties();
+        System.out.println(extA1Properties);
     }
 
 }

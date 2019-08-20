@@ -1,9 +1,9 @@
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -55,6 +55,7 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
+import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
 import org.flowable.bpmn.converter.parser.ExtensionElementsParser;
 import org.flowable.bpmn.converter.parser.ImportParser;
 import org.flowable.bpmn.converter.parser.InterfaceParser;
@@ -134,6 +135,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
     protected ProcessParser processParser = new ProcessParser();
     protected ResourceParser resourceParser = new ResourceParser();
     protected SignalParser signalParser = new SignalParser();
+    protected ExtA1PropertiesParser extA1PropertiesParser = new ExtA1PropertiesParser();
     protected SubProcessParser subProcessParser = new SubProcessParser();
 
     static {
@@ -296,6 +298,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
             Process activeProcess = null;
             List<SubProcess> activeSubProcessList = new ArrayList<>();
             while (xtr.hasNext()) {
+
                 try {
                     xtr.next();
                 } catch (Exception e) {
@@ -331,7 +334,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
                     if (StringUtils.isNotEmpty(xtr.getAttributeValue(null, ATTRIBUTE_ID))) {
                         model.addError(xtr.getAttributeValue(null, ATTRIBUTE_ID), xtr.getAttributeValue(null, ATTRIBUTE_ERROR_CODE));
                     }
-                    
+
                 } else if (ELEMENT_ESCALATION.equals(xtr.getLocalName())) {
 
                     if (StringUtils.isNotEmpty(xtr.getAttributeValue(null, ATTRIBUTE_ID))) {
@@ -416,8 +419,13 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
                 } else if (ELEMENT_DI_EDGE.equals(xtr.getLocalName())) {
                     bpmnEdgeParser.parse(xtr, model);
 
-                } else {
+                } else if (ELEMENT_EXT_A1.equals(xtr.getLocalName())) {
+                   extA1PropertiesParser.parse(xtr,model);
 
+                }
+
+
+                else {
                     if (!activeSubProcessList.isEmpty() && ELEMENT_MULTIINSTANCE.equalsIgnoreCase(xtr.getLocalName())) {
 
                         multiInstanceParser.parseChildElement(xtr, activeSubProcessList.get(activeSubProcessList.size() - 1), model);
