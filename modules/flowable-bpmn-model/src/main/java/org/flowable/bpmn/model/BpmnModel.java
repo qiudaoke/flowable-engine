@@ -1,9 +1,9 @@
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -52,6 +52,7 @@ public class BpmnModel {
     protected List<String> startEventFormTypes;
     protected int nextFlowIdCounter = 1;
     protected Object eventSupport;
+    protected ExtA1Properties extA1Properties;
 
     public Map<String, List<ExtensionAttribute>> getDefinitionsAttributes() {
         return definitionsAttributes;
@@ -436,7 +437,7 @@ public class BpmnModel {
     public boolean containsErrorRef(String errorRef) {
         return errorMap.containsKey(errorRef);
     }
-    
+
     public Collection<Escalation> getEscalations() {
         return escalationMap.values();
     }
@@ -450,7 +451,7 @@ public class BpmnModel {
             escalationMap.put(escalationRef, new Escalation(escalationRef, name, escalationCode));
         }
     }
-    
+
     public void addEscalation(Escalation escalation) {
         if (StringUtils.isNotEmpty(escalation.getEscalationCode())) {
             escalationMap.put(escalation.getEscalationCode(), escalation);
@@ -460,7 +461,7 @@ public class BpmnModel {
     public boolean containsEscalationRef(String escalationRef) {
         return escalationMap.containsKey(escalationRef);
     }
-    
+
     public Escalation getEscalation(String escalationRef) {
         return escalationMap.get(escalationRef);
     }
@@ -596,5 +597,11 @@ public class BpmnModel {
 
     public void setEventSupport(Object eventSupport) {
         this.eventSupport = eventSupport;
+    }
+    public void addExtA1Properties(ExtA1Properties extA1Properties) {
+        this.extA1Properties=extA1Properties;
+    }
+    public ExtA1Properties getExtA1Properties() {
+        return extA1Properties;
     }
 }
