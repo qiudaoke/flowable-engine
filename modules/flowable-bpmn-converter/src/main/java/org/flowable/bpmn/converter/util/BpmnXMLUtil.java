@@ -65,6 +65,8 @@ import org.flowable.bpmn.model.ExtensionElement;
 import org.flowable.bpmn.model.GraphicInfo;
 import org.flowable.bpmn.model.IOParameter;
 
+import com.a1.bpmn.ExtA1PropertyDefParser;
+
 public class BpmnXMLUtil implements BpmnXMLConstants {
 
     private static Map<String, BaseChildElementParser> genericChildParserMap = new HashMap<>();
@@ -74,6 +76,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
         addGenericParser(new CompensateEventDefinitionParser());
         addGenericParser(new ConditionalEventDefinitionParser());
         addGenericParser(new ConditionParser());
+        addGenericParser(new ExtA1PropertyDefParser());
         addGenericParser(new ConditionExpressionParser());
         addGenericParser(new DataInputAssociationParser());
         addGenericParser(new DataOutputAssociationParser());
@@ -155,7 +158,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
                 if (ELEMENT_EXTENSIONS.equals(xtr.getLocalName())) {
                     inExtensionElements = false;
                 }
-                
+
                 if (elementName.equalsIgnoreCase(xtr.getLocalName())) {
                     readyWithChildElements = true;
                 }
@@ -309,7 +312,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
             xtw.writeEndElement();
         }
     }
-    
+
     public static boolean writeIOParameters(String elementName, List<IOParameter> parameterList, boolean didWriteExtensionStartElement, XMLStreamWriter xtw) throws Exception {
 
         if (parameterList.isEmpty()) {
@@ -390,7 +393,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
 
     /**
      * add all attributes from XML to element extensionAttributes (except blackListed).
-     * 
+     *
      * @param xtr
      * @param element
      * @param blackLists
@@ -418,7 +421,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
 
     /**
      * write attributes to xtw (except blacklisted)
-     * 
+     *
      * @param attributes
      * @param xtw
      * @param namespaceMap

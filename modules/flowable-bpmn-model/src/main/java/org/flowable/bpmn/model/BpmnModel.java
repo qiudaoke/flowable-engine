@@ -52,7 +52,8 @@ public class BpmnModel {
     protected List<String> startEventFormTypes;
     protected int nextFlowIdCounter = 1;
     protected Object eventSupport;
-    protected ExtA1Properties extA1Properties;
+    protected  ExtA1Properties extA1Properties;
+    protected ExtA1Button extA1Button;
 
     public Map<String, List<ExtensionAttribute>> getDefinitionsAttributes() {
         return definitionsAttributes;
@@ -603,5 +604,18 @@ public class BpmnModel {
     }
     public ExtA1Properties getExtA1Properties() {
         return extA1Properties;
+    }
+
+    public void setExtA1Properties(ExtA1Properties extA1Properties) {
+        this.extA1Properties = extA1Properties;
+    }
+    public ExtA1Button getExtA1Button() {
+        return extA1Button;
+    }
+    public void setExtA1Button(ExtA1Button extA1Button) {
+        this.extA1Button = extA1Button;
+    }
+    public void addExtA1ButtonProperties(ExtA1Button extA1Button) {
+        this.extA1Button = extA1Button;
     }
 }

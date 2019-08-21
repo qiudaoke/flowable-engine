@@ -319,7 +319,8 @@ public interface BpmnXMLConstants {
     public static final String ELEMENT_DI_DIAGRAM = "BPMNDiagram";
     public static final String ELEMENT_DI_PLANE = "BPMNPlane";
     public static final String ELEMENT_DI_SHAPE = "BPMNShape";
-    public static final String ELEMENT_EXT_A1 = "Properties";
+    public static final String ELEMENT_EXT_A1 = "ExtProperties";
+    public static final String ELEMENT_EXT_A1_BUTTON = "Button";
     public static final String ELEMENT_DI_EDGE = "BPMNEdge";
     public static final String ELEMENT_DI_LABEL = "BPMNLabel";
     public static final String ELEMENT_DI_BOUNDS = "Bounds";
