@@ -25,7 +25,9 @@
             <xsd:attribute name="propNotifyType" type="xsd:string"/>
             <xsd:attribute name="propSkipRules" type="xsd:string"/>
             <xsd:attribute name="subjectRule" type="xsd:string"/>
-        </xsd:complexType>
+
+
+
     </xsd:element>
 
 </xsd:schema>
