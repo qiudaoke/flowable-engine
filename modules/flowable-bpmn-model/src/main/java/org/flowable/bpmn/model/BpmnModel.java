@@ -53,7 +53,7 @@ public class BpmnModel {
     protected int nextFlowIdCounter = 1;
     protected Object eventSupport;
     protected  ExtA1Properties extA1Properties;
-    protected ExtA1Button extA1Button;
+    List<ExtA1Button> extA1Buttons=new ArrayList<>();
 
 
     public Map<String, List<ExtensionAttribute>> getDefinitionsAttributes() {
@@ -610,13 +610,13 @@ public class BpmnModel {
     public void setExtA1Properties(ExtA1Properties extA1Properties) {
         this.extA1Properties = extA1Properties;
     }
-    public ExtA1Button getExtA1Button() {
-        return extA1Button;
+    public void addExtA1Buttons(ExtA1Button extA1Buttons) {
+        this.extA1Buttons.add(extA1Buttons);
     }
-    public void setExtA1Button(ExtA1Button extA1Button) {
-        this.extA1Button = extA1Button;
+    public List<ExtA1Button> getExtA1Buttons() {
+        return extA1Buttons;
     }
-    public void addExtA1ButtonProperties(ExtA1Button extA1Button) {
-        this.extA1Button = extA1Button;
+    public void setExtA1Buttons(List<ExtA1Button> extA1Buttons) {
+        this.extA1Buttons = extA1Buttons;
     }
 }

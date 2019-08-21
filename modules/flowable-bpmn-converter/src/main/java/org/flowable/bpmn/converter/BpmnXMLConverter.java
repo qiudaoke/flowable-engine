@@ -55,6 +55,8 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
+import com.a1.bpmn.ExtA1ButtonsParser;
+
 
 import org.flowable.bpmn.converter.parser.ExtA1ButtonParser;
 import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
@@ -138,10 +140,10 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
     protected ResourceParser resourceParser = new ResourceParser();
     protected SignalParser signalParser = new SignalParser();
     protected ExtA1PropertiesParser extA1PropertiesParser = new ExtA1PropertiesParser();
-    protected ExtA1ButtonParser extA1ButtonParser = new ExtA1ButtonParser();
+    protected ExtA1ButtonsParser extA1ButtonParser = new ExtA1ButtonsParser();
     protected SubProcessParser subProcessParser = new SubProcessParser();
 
-    
+
     static {
         // events
         addConverter(new EndEventXMLConverter());

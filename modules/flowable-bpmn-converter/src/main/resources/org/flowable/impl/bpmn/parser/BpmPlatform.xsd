@@ -30,4 +30,26 @@
 
     </xsd:element>
 
+    <xsd:element name="Buttons">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="extA1:Button" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:string"/>
+
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Button">
+        <xsd:complexType >
+            <xsd:attribute name="id" type="xsd:string" />
+            <xsd:attribute name="alias" type="xsd:string"/>
+            <xsd:attribute name="btnName" type="xsd:string"/>
+            <xsd:attribute name="nodeId" use="required" type="xsd:string"/>
+            <xsd:attribute name="description" type="xsd:string" use="optional" />
+            <xsd:attribute name="beforeScript"  type="xsd:string" use="optional"/>
+            <xsd:attribute name="afterScript" use="optional"/>
+            <xsd:attribute name="groovyScript" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+
 </xsd:schema>

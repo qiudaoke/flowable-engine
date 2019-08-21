@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:A1Category="http://a1bpm.category/schema/bpmn/ExtCategory/1.0" xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_17m7czq" targetNamespace="ddd" A1Category:categoryId="10001" A1Category:title="请假" A1Category:typeKey="17">
-    <bpmn:process id="ddd" name="dddd" isExecutable="true">
-        <bpmn:documentation>ddddd</bpmn:documentation>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_17m7czq" targetNamespace="http://bpmn.io/schema/bpmn">
+    <bpmn:process id="ddd" isExecutable="true">
         <bpmn:startEvent id="StartEvent_1">
-            <bpmn:outgoing>SequenceFlow_09fyt67</bpmn:outgoing>
+            <bpmn:outgoing>SequenceFlow_19uly6z</bpmn:outgoing>
         </bpmn:startEvent>
-        <bpmn:userTask id="UserTask_1j2t6fy" name="用户任务1">
-            <bpmn:incoming>SequenceFlow_09fyt67</bpmn:incoming>
-            <bpmn:outgoing>SequenceFlow_1kpivtk</bpmn:outgoing>
+        <bpmn:userTask id="UserTask_0vzfgc5" name="用户任务1">
+            <bpmn:incoming>SequenceFlow_19uly6z</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_0j6bdb9</bpmn:outgoing>
         </bpmn:userTask>
-        <bpmn:sequenceFlow id="SequenceFlow_09fyt67" sourceRef="StartEvent_1" targetRef="UserTask_1j2t6fy" />
-        <bpmn:endEvent id="EndEvent_1llv3yd" name="结束事件1">
-            <bpmn:incoming>SequenceFlow_1kpivtk</bpmn:incoming>
-        </bpmn:endEvent>
-        <bpmn:sequenceFlow id="SequenceFlow_1kpivtk" sourceRef="UserTask_1j2t6fy" targetRef="EndEvent_1llv3yd" />
+        <bpmn:sequenceFlow id="SequenceFlow_19uly6z" sourceRef="StartEvent_1" targetRef="UserTask_0vzfgc5" />
+        <bpmn:userTask id="UserTask_1wir5du" name="用户任务2">
+            <bpmn:incoming>SequenceFlow_0j6bdb9</bpmn:incoming>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="SequenceFlow_0j6bdb9" sourceRef="UserTask_0vzfgc5" targetRef="UserTask_1wir5du" />
     </bpmn:process>
-    <!--<extA1:Button id="Button_0spw49z" alias="flowImage" btnName="流程图" nodeId="StartEvent_1" />-->
-    <!--<extA1:Button id="Button_1bfzi1s" alias="print" btnName="打印" nodeId="StartEvent_1" />-->
-    <!--<extA1:Button id="Button_0cdqwhb" alias="saveDraft" btnName="保存" nodeId="StartEvent_1" />-->
-    <extA1:Properties id="Properties_16yg26g" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="ccc" propNotifyType="mail" parameterUserAssign="prop_skipFirstNode" propSkipRules="all" propDateType="worktime" dateTypeDay="" dateTypeHour="number:0" dateTypeMinute="number:0" />
+
+
+
+    <extA1:ExtProperties id="ExtProperties_042qrby">
+        <extA1:PropertiesDef id="PropertiesDef_00ptb2w" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="" propNotifyType="" parameterUserAssign="" propSkipRules="" propDateType="worktime" dateTypeDay="" dateTypeHour="0" dateTypeMinute="0" />
+    </extA1:ExtProperties>
+
+    <extA1:Buttons id="ccccc">
+        <extA1:Button id="xxxxxx" alias="agree" btnName="同意" nodeId="UserTask_1wir5du" ></extA1:Button>
+        <extA1:Button id="ccc" alias="agree" btnName="同意" nodeId="UserTask_1wir5du" ></extA1:Button>
+        <extA1:Button id="1" alias="agree" btnName="同意" nodeId="UserTask_1wir5du" ></extA1:Button>
+        <extA1:Button id="f" alias="agree" btnName="同意" nodeId="UserTask_1wir5du" ></extA1:Button>
+    </extA1:Buttons>
+
+
+
+
+
     <bpmndi:BPMNDiagram id="BPMNDiagram_1">
         <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ddd">
             <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
                 <dc:Bounds x="179" y="159" width="36" height="36" />
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape id="UserTask_1j2t6fy_di" bpmnElement="UserTask_1j2t6fy">
-                <dc:Bounds x="270" y="137" width="100" height="80" />
+            <bpmndi:BPMNShape id="UserTask_0vzfgc5_di" bpmnElement="UserTask_0vzfgc5" bioc:fill="#cddc39">
+                <dc:Bounds x="270" y="250" width="100" height="80" />
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge id="SequenceFlow_09fyt67_di" bpmnElement="SequenceFlow_09fyt67">
+            <bpmndi:BPMNEdge id="SequenceFlow_19uly6z_di" bpmnElement="SequenceFlow_19uly6z">
                 <di:waypoint x="215" y="177" />
-                <di:waypoint x="270" y="177" />
+                <di:waypoint x="243" y="177" />
+                <di:waypoint x="243" y="290" />
+                <di:waypoint x="270" y="290" />
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNShape id="EndEvent_1llv3yd_di" bpmnElement="EndEvent_1llv3yd">
-                <dc:Bounds x="432" y="159" width="36" height="36" />
-                <bpmndi:BPMNLabel>
-                    <dc:Bounds x="424" y="198" width="51" height="14" />
-                </bpmndi:BPMNLabel>
+            <bpmndi:BPMNShape id="UserTask_1wir5du_di" bpmnElement="UserTask_1wir5du" bioc:fill="#cddc39">
+                <dc:Bounds x="540" y="240" width="100" height="80" />
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge id="SequenceFlow_1kpivtk_di" bpmnElement="SequenceFlow_1kpivtk">
-                <di:waypoint x="370" y="177" />
-                <di:waypoint x="432" y="177" />
+            <bpmndi:BPMNEdge id="SequenceFlow_0j6bdb9_di" bpmnElement="SequenceFlow_0j6bdb9">
+                <di:waypoint x="370" y="290" />
+                <di:waypoint x="400" y="290" />
+                <di:waypoint x="400" y="280" />
+                <di:waypoint x="540" y="280" />
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>

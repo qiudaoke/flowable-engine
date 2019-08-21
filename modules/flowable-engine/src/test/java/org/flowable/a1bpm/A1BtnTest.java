@@ -13,7 +13,10 @@
 
 package org.flowable.a1bpm;
 
+import java.util.List;
+
 import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.ExtA1Button;
 import org.flowable.bpmn.model.ExtA1Properties;
 import org.flowable.engine.impl.test.ResourceFlowableTestCase;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -35,8 +38,8 @@ public class A1BtnTest extends ResourceFlowableTestCase {
         String processDefinitionId = pi.getProcessDefinitionId();
         BpmnModel bpmnModel = repositoryService.getBpmnModel(processDefinitionId);
         System.out.println(bpmnModel);
-        ExtA1Properties extA1Properties = bpmnModel.getExtA1Properties();
-        System.out.println(extA1Properties);
+        List<ExtA1Button> extA1Buttons = bpmnModel.getExtA1Buttons();
+        System.out.println(extA1Buttons);
     }
 
 }
