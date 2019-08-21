@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1" id="Definitions_17m7czq" targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_17m7czq" targetNamespace="http://bpmn.io/schema/bpmn">
     <bpmn:process id="f" isExecutable="true">
-        <bpmn:startEvent id="StartEvent_1" />
+        <bpmn:startEvent id="StartEvent_1">
+            <bpmn:outgoing>SequenceFlow_11hkg91</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:userTask id="UserTask_0jplecn" name="用户任务1">
+            <bpmn:incoming>SequenceFlow_11hkg91</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_0p5f6rh</bpmn:outgoing>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="SequenceFlow_11hkg91" sourceRef="StartEvent_1" targetRef="UserTask_0jplecn" />
+        <bpmn:endEvent id="EndEvent_1c4itrb" name="结束事件1">
+            <bpmn:incoming>SequenceFlow_0p5f6rh</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow id="SequenceFlow_0p5f6rh" sourceRef="UserTask_0jplecn" targetRef="EndEvent_1c4itrb" />
     </bpmn:process>
-    <extA1:ExtProperties id="ExtProperties_0s5v812">
-        <extA1:PropertiesDef id="PropertiesDef_0wf6wat" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="cccc" propNotifyType="mail,sms,inner" parameterUserAssign="prop_skipStartNode" propSkipRules="sameUser,emptyUser" propDateType="worktime" dateTypeDay="3" dateTypeHour="2" dateTypeMinute="4" />
-    </extA1:ExtProperties>
     <bpmndi:BPMNDiagram id="BPMNDiagram_1">
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
@@ -27,9 +35,27 @@
     <extA1:Properties id="Properties_156bijv" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="ccc" propNotifyType="mail,sms" parameterUserAssign="prop_skipStartNode,prop_allowTransTo" propSkipRules="sameUser,emptyUser" propDateType="worktime" dateTypeDay="44" dateTypeHour="number:1" dateTypeMinute="number:3" />
     <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="cccc" documentation="cccccc">
         <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="f">
-            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:fill="#2ed91f">
                 <dc:Bounds x="179" y="159" width="36" height="36" />
             </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_0jplecn_di" bpmnElement="UserTask_0jplecn" bioc:fill="#d91f1f">
+                <dc:Bounds x="270" y="137" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_11hkg91_di" bpmnElement="SequenceFlow_11hkg91">
+                <di:waypoint x="215" y="177" />
+                <di:waypoint x="270" y="177" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="EndEvent_1c4itrb_di" bpmnElement="EndEvent_1c4itrb" bioc:fill="#041603">
+                <dc:Bounds x="462" y="159" width="36" height="36" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="454" y="198" width="51" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0p5f6rh_di" bpmnElement="SequenceFlow_0p5f6rh">
+                <di:waypoint x="370" y="177" />
+                <di:waypoint x="462" y="177" />
+            </bpmndi:BPMNEdge>
+
             <bpmndi:BPMNShape id="UserTask_0gju2nk_di" bpmnElement="UserTask_0gju2nk">
                 <dc:Bounds x="270" y="137" width="100" height="80" />
             </bpmndi:BPMNShape>
