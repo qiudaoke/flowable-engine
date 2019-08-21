@@ -12,40 +12,28 @@
  */
 package org.flowable.bpmn.converter.parser;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.stream.XMLStreamReader;
-
-import org.flowable.bpmn.constants.BpmnXMLConstants;
-import org.flowable.bpmn.converter.child.BaseChildElementParser;
-import org.flowable.bpmn.converter.util.BpmnXMLUtil;
-import org.flowable.bpmn.model.BaseElement;
-import org.flowable.bpmn.model.BpmnModel;
-import org.flowable.bpmn.model.ExtA1Properties;
-
 import javax.xml.stream.XMLStreamReader;
 
 import org.flowable.bpmn.constants.BpmnXMLConstants;
 import org.flowable.bpmn.converter.util.BpmnXMLUtil;
 import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.ExtA1Button;
 import org.flowable.bpmn.model.ExtA1Properties;
 
 /**
  * @author Jizheng
  */
-public class ExtA1PropertiesParser implements BpmnXMLConstants {
+public class ExtA1ButtonParser implements BpmnXMLConstants {
 
     public void parse(XMLStreamReader xtr, BpmnModel model) throws Exception {
-        ExtA1Properties extA1Properties = new ExtA1Properties(id,subjectRule,description,propNotifyType,parameterUserAssign,
-            propSkipRules,propDateType,dateTypeDay,dateTypeMinute);
 
-        BpmnXMLUtil.parseChildElements("PropertiesDef", null, xtr, model);
-    }
+        String id = xtr.getAttributeValue(null, ATTRIBUTE_ID);
+        String alias = xtr.getAttributeValue(null, "alias");
+        String btnName = xtr.getAttributeValue(null, "btnName");
+        String nodeId = xtr.getAttributeValue(null, "nodeId");
 
-
-        BpmnXMLUtil.addXMLLocation(extA1Properties, xtr);
-//        BpmnXMLUtil.parseChildElements(ELEMENT_SIGNAL, signal, xtr, model);
-       model.addExtA1Properties(extA1Properties);
+        ExtA1Button extA1Button = new ExtA1Button(id,alias,btnName,nodeId);
+        BpmnXMLUtil.addXMLLocation(extA1Button, xtr);
+       model.addExtA1ButtonProperties(extA1Button);
     }
 }

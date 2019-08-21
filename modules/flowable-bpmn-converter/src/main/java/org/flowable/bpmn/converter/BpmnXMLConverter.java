@@ -55,6 +55,8 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
+
+import org.flowable.bpmn.converter.parser.ExtA1ButtonParser;
 import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
 import org.flowable.bpmn.converter.parser.ExtensionElementsParser;
 import org.flowable.bpmn.converter.parser.ImportParser;
@@ -136,8 +138,10 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
     protected ResourceParser resourceParser = new ResourceParser();
     protected SignalParser signalParser = new SignalParser();
     protected ExtA1PropertiesParser extA1PropertiesParser = new ExtA1PropertiesParser();
+    protected ExtA1ButtonParser extA1ButtonParser = new ExtA1ButtonParser();
     protected SubProcessParser subProcessParser = new SubProcessParser();
 
+    
     static {
         // events
         addConverter(new EndEventXMLConverter());
@@ -158,7 +162,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
 
         // gateways
 
-        
+
         addConverter(new EventGatewayXMLConverter());
         addConverter(new ExclusiveGatewayXMLConverter());
         addConverter(new InclusiveGatewayXMLConverter());
@@ -424,6 +428,8 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
                 } else if (ELEMENT_EXT_A1.equals(xtr.getLocalName())) {
                    extA1PropertiesParser.parse(xtr,model);
 
+                }else if (ELEMENT_EXT_A1_BUTTON.equals(xtr.getLocalName())) {
+                    extA1ButtonParser.parse(xtr,model);
                 }
 
 

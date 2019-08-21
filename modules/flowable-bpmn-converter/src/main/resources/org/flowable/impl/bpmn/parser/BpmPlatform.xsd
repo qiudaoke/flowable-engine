@@ -5,21 +5,29 @@
             xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
-
-
-    <xsd:element name="Properties">
+    <xsd:element name="ExtProperties">
         <xsd:complexType>
-            <xsd:attribute name="id" type="xsd:string" />
-            <xsd:attribute name="subjectRule" type="xsd:string" />
-            <xsd:attribute name="description" type="xsd:string" />
-            <xsd:attribute name="propNotifyType" type="xsd:string" />
-            <xsd:attribute name="parameterUserAssign" type="xsd:string" />
-            <xsd:attribute name="propSkipRules" type="xsd:string" />
-            <xsd:attribute name="propDateType" type="xsd:string" />
-            <xsd:attribute name="dateTypeDay" type="xsd:string" />
-            <xsd:attribute name="dateTypeHour" type="xsd:string" />
-            <xsd:attribute name="dateTypeMinute" type="xsd:string" />
+            <xsd:sequence>
+                <xsd:element ref="extA1:PropertiesDef"/>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:string"/>
         </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PropertiesDef">
+        <xsd:complexType>
+            <xsd:attribute name="dateTypeDay" type="xsd:string"/>
+            <xsd:attribute name="dateTypeHour" type="xsd:string"/>
+            <xsd:attribute name="dateTypeMinute" use="required" type="xsd:string"/>
+            <xsd:attribute name="description" type="xsd:string"/>
+            <xsd:attribute name="id"  type="xsd:string"/>
+            <xsd:attribute name="parameterUserAssign" use="required"/>
+            <xsd:attribute name="propDateType" type="xsd:string"/>
+            <xsd:attribute name="propNotifyType" type="xsd:string"/>
+            <xsd:attribute name="propSkipRules" type="xsd:string"/>
+            <xsd:attribute name="subjectRule" type="xsd:string"/>
+
+
+
     </xsd:element>
 
 </xsd:schema>
