@@ -23,7 +23,13 @@ import org.flowable.bpmn.converter.util.BpmnXMLUtil;
 import org.flowable.bpmn.model.BaseElement;
 import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.bpmn.model.ExtA1Properties;
-import org.flowable.bpmn.model.ExtensionElement;
+
+import javax.xml.stream.XMLStreamReader;
+
+import org.flowable.bpmn.constants.BpmnXMLConstants;
+import org.flowable.bpmn.converter.util.BpmnXMLUtil;
+import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.ExtA1Properties;
 
 /**
  * @author Jizheng
@@ -31,16 +37,15 @@ import org.flowable.bpmn.model.ExtensionElement;
 public class ExtA1PropertiesParser implements BpmnXMLConstants {
 
     public void parse(XMLStreamReader xtr, BpmnModel model) throws Exception {
+        ExtA1Properties extA1Properties = new ExtA1Properties(id,subjectRule,description,propNotifyType,parameterUserAssign,
+            propSkipRules,propDateType,dateTypeDay,dateTypeMinute);
 
-//
-//        String scope = BpmnXMLUtil.getAttributeValue(ATTRIBUTE_SCOPE, xtr);
-//        if (scope != null) {
-//            signal.setScope(scope);
-//        }
-//
         BpmnXMLUtil.parseChildElements("PropertiesDef", null, xtr, model);
     }
 
 
-
+        BpmnXMLUtil.addXMLLocation(extA1Properties, xtr);
+//        BpmnXMLUtil.parseChildElements(ELEMENT_SIGNAL, signal, xtr, model);
+       model.addExtA1Properties(extA1Properties);
+    }
 }

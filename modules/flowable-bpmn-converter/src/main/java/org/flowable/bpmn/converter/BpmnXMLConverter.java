@@ -55,6 +55,7 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
+
 import org.flowable.bpmn.converter.parser.ExtA1ButtonParser;
 import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
 import org.flowable.bpmn.converter.parser.ExtensionElementsParser;
@@ -429,7 +430,6 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
 
                 }else if (ELEMENT_EXT_A1_BUTTON.equals(xtr.getLocalName())) {
                     extA1ButtonParser.parse(xtr,model);
-
                 }
 
 
