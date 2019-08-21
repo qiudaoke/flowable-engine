@@ -55,6 +55,7 @@ public class BpmnModel {
     protected  ExtA1Properties extA1Properties;
     List<ExtA1Button> extA1Buttons=new ArrayList<>();
 
+
     public Map<String, List<ExtensionAttribute>> getDefinitionsAttributes() {
         return definitionsAttributes;
     }

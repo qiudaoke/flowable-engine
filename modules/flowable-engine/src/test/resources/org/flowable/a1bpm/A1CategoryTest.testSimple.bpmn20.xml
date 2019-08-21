@@ -18,6 +18,27 @@
     <bpmndi:BPMNDiagram id="BPMNDiagram_1">
         <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_02okg1u">
             <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_17m7czq" targetNamespace="http://bpmn.io/schema/bpmn">
+    <bpmn:process id="f" isExecutable="true">
+        <bpmn:startEvent id="StartEvent_1">
+            <bpmn:outgoing>SequenceFlow_09y2hkb</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:userTask id="UserTask_0gju2nk" name="用户任务1">
+            <bpmn:incoming>SequenceFlow_09y2hkb</bpmn:incoming>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="SequenceFlow_09y2hkb" sourceRef="StartEvent_1" targetRef="UserTask_0gju2nk" />
+    </bpmn:process>
+    <!--<extA1:Properties id="Properties_156bijv" subjectRule="ccc" description="cc" />-->
+
+    <extA1:Properties id="Properties_156bijv" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="ccc" propNotifyType="mail,sms" parameterUserAssign="prop_skipStartNode,prop_allowTransTo" propSkipRules="sameUser,emptyUser" propDateType="worktime" dateTypeDay="44" dateTypeHour="number:1" dateTypeMinute="number:3" />
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="cccc" documentation="cccccc">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="f">
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:fill="#2ed91f">
                 <dc:Bounds x="179" y="159" width="36" height="36" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape id="UserTask_0vzfgc5_di" bpmnElement="UserTask_0vzfgc5" bioc:fill="#cddc39">
@@ -37,6 +58,14 @@
                 <di:waypoint x="400" y="290" />
                 <di:waypoint x="400" y="280" />
                 <di:waypoint x="540" y="280" />
+            </bpmndi:BPMNEdge>
+
+            <bpmndi:BPMNShape id="UserTask_0gju2nk_di" bpmnElement="UserTask_0gju2nk">
+                <dc:Bounds x="270" y="137" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_09y2hkb_di" bpmnElement="SequenceFlow_09y2hkb">
+                <di:waypoint x="215" y="177" />
+                <di:waypoint x="270" y="177" />
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
