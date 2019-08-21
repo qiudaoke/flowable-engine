@@ -65,6 +65,7 @@ import org.flowable.bpmn.model.ExtensionElement;
 import org.flowable.bpmn.model.GraphicInfo;
 import org.flowable.bpmn.model.IOParameter;
 
+import com.a1.bpmn.ExtA1ButtonParser;
 import com.a1.bpmn.ExtA1PropertyDefParser;
 
 public class BpmnXMLUtil implements BpmnXMLConstants {
@@ -77,6 +78,7 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
         addGenericParser(new ConditionalEventDefinitionParser());
         addGenericParser(new ConditionParser());
         addGenericParser(new ExtA1PropertyDefParser());
+        addGenericParser(new ExtA1ButtonParser());
         addGenericParser(new ConditionExpressionParser());
         addGenericParser(new DataInputAssociationParser());
         addGenericParser(new DataOutputAssociationParser());
@@ -161,6 +163,12 @@ public class BpmnXMLUtil implements BpmnXMLConstants {
 
                 if (elementName.equalsIgnoreCase(xtr.getLocalName())) {
                     readyWithChildElements = true;
+                }
+                 if ("Button".equals((xtr.getLocalName()))) {
+                    System.out.println(1);
+
+
+
                 }
             }
         }

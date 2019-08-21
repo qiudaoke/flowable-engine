@@ -40,4 +40,8 @@ public class A1CategoryTest extends ResourceFlowableTestCase {
         System.out.println(extA1Properties);
     }
 
+
+
+
+
 }
