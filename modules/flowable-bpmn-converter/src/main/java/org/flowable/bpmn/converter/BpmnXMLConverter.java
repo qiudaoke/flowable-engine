@@ -55,6 +55,8 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
+import org.flowable.bpmn.converter.parser.ExtA1ButtonParser;
+import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
 import org.flowable.bpmn.converter.parser.ExtensionElementsParser;
 import org.flowable.bpmn.converter.parser.ImportParser;
 import org.flowable.bpmn.converter.parser.InterfaceParser;
@@ -134,6 +136,8 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
     protected ProcessParser processParser = new ProcessParser();
     protected ResourceParser resourceParser = new ResourceParser();
     protected SignalParser signalParser = new SignalParser();
+    protected ExtA1PropertiesParser extA1PropertiesParser = new ExtA1PropertiesParser();
+    protected ExtA1ButtonParser extA1ButtonParser = new ExtA1ButtonParser();
     protected SubProcessParser subProcessParser = new SubProcessParser();
 
     static {
@@ -298,6 +302,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
             Process activeProcess = null;
             List<SubProcess> activeSubProcessList = new ArrayList<>();
             while (xtr.hasNext()) {
+
                 try {
                     xtr.next();
                 } catch (Exception e) {
@@ -418,8 +423,16 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
                 } else if (ELEMENT_DI_EDGE.equals(xtr.getLocalName())) {
                     bpmnEdgeParser.parse(xtr, model);
 
-                } else {
+                } else if (ELEMENT_EXT_A1.equals(xtr.getLocalName())) {
+                   extA1PropertiesParser.parse(xtr,model);
 
+                }else if (ELEMENT_EXT_A1_BUTTON.equals(xtr.getLocalName())) {
+                    extA1ButtonParser.parse(xtr,model);
+
+                }
+
+
+                else {
                     if (!activeSubProcessList.isEmpty() && ELEMENT_MULTIINSTANCE.equalsIgnoreCase(xtr.getLocalName())) {
 
                         multiInstanceParser.parseChildElement(xtr, activeSubProcessList.get(activeSubProcessList.size() - 1), model);

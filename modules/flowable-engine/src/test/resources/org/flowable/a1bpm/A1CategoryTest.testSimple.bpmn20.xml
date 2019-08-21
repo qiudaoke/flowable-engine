@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:extA1="http://www.a1bpm.com/schema/1.0/A1" id="Definitions_17m7czq" targetNamespace="http://bpmn.io/schema/bpmn">
+    <bpmn:process id="f" isExecutable="true">
+        <bpmn:startEvent id="StartEvent_1" />
+    </bpmn:process>
+    <extA1:ExtProperties id="ExtProperties_0s5v812">
+        <extA1:PropertiesDef id="PropertiesDef_0wf6wat" subjectRule="&#10;                                        {发起人:startorName}在{发起时间:startDate}发起{流程标题:title}&#10;                                    " description="cccc" propNotifyType="mail,sms,inner" parameterUserAssign="prop_skipStartNode" propSkipRules="sameUser,emptyUser" propDateType="worktime" dateTypeDay="3" dateTypeHour="2" dateTypeMinute="4" />
+    </extA1:ExtProperties>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="f">
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+                <dc:Bounds x="179" y="159" width="36" height="36" />
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
