@@ -140,6 +140,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
     protected ExtA1ButtonParser extA1ButtonParser = new ExtA1ButtonParser();
     protected SubProcessParser subProcessParser = new SubProcessParser();
 
+    
     static {
         // events
         addConverter(new EndEventXMLConverter());
@@ -160,7 +161,7 @@ public class BpmnXMLConverter implements BpmnXMLConstants {
 
         // gateways
 
-        
+
         addConverter(new EventGatewayXMLConverter());
         addConverter(new ExclusiveGatewayXMLConverter());
         addConverter(new InclusiveGatewayXMLConverter());
