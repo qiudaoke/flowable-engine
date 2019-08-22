@@ -7,9 +7,10 @@
             attributeFormDefault="unqualified">
     <xsd:element name="ExtProperties">
         <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element ref="extA1:PropertiesDef"/>
-            </xsd:sequence>
+
+            <xsd:choice>
+                <xsd:element ref="extA1:PropertiesDef"  minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:choice>
             <xsd:attribute name="id" type="xsd:string"/>
         </xsd:complexType>
     </xsd:element>
