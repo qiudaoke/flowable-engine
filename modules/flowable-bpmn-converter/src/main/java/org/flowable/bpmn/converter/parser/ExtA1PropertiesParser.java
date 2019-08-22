@@ -37,15 +37,8 @@ import org.flowable.bpmn.model.ExtA1Properties;
 public class ExtA1PropertiesParser implements BpmnXMLConstants {
 
     public void parse(XMLStreamReader xtr, BpmnModel model) throws Exception {
-        ExtA1Properties extA1Properties = new ExtA1Properties(id,subjectRule,description,propNotifyType,parameterUserAssign,
-            propSkipRules,propDateType,dateTypeDay,dateTypeMinute);
 
         BpmnXMLUtil.parseChildElements("PropertiesDef", null, xtr, model);
     }
 
-
-        BpmnXMLUtil.addXMLLocation(extA1Properties, xtr);
-//        BpmnXMLUtil.parseChildElements(ELEMENT_SIGNAL, signal, xtr, model);
-       model.addExtA1Properties(extA1Properties);
-    }
 }

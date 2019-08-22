@@ -8,7 +8,7 @@
     <xsd:element name="ExtProperties">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element ref="extA1:PropertiesDef"/>
+                <xsd:element ref="extA1:PropertiesDef" maxOccurs="unbounded"/>
             </xsd:sequence>
             <xsd:attribute name="id" type="xsd:string"/>
         </xsd:complexType>
@@ -26,14 +26,14 @@
             <xsd:attribute name="propSkipRules" type="xsd:string"/>
             <xsd:attribute name="subjectRule" type="xsd:string"/>
 
-
+        </xsd:complexType>
 
     </xsd:element>
 
     <xsd:element name="Buttons">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element ref="extA1:Button" maxOccurs="unbounded"/>
+                <xsd:element ref="extA1:Button" maxOccurs="unbounded" />
             </xsd:sequence>
             <xsd:attribute name="id" type="xsd:string"/>
 

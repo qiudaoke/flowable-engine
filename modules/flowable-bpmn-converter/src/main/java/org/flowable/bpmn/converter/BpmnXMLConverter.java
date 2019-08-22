@@ -55,10 +55,6 @@ import org.flowable.bpmn.converter.parser.BpmnEdgeParser;
 import org.flowable.bpmn.converter.parser.BpmnShapeParser;
 import org.flowable.bpmn.converter.parser.DataStoreParser;
 import org.flowable.bpmn.converter.parser.DefinitionsParser;
-import com.a1.bpmn.ExtA1ButtonsParser;
-
-
-import org.flowable.bpmn.converter.parser.ExtA1ButtonParser;
 import org.flowable.bpmn.converter.parser.ExtA1PropertiesParser;
 import org.flowable.bpmn.converter.parser.ExtensionElementsParser;
 import org.flowable.bpmn.converter.parser.ImportParser;
@@ -101,6 +97,8 @@ import org.flowable.common.engine.api.io.InputStreamProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
+
+import com.a1.bpmn.ExtA1ButtonsParser;
 
 /**
  * @author Tijs Rademakers
